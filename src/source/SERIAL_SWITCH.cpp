@@ -1,15 +1,21 @@
 #include "SERIAL_SWITCH.h"
 
-SSwitch::SSwitch( const uint16_t pin1, const uint16_t pin2, const uint8_t address) :
-  p1(pin1),
-  p2(pin2),
+SSwitch::SSwitch( const uint16_t pin, const uint8_t address) :
+  p1(pin),
   addr(address)
-	{
-		pinMode(pin1, OUTPUT);		
-    pinMode(pin2, OUTPUT);
-	}
+  {
+    pinMode(pin, OUTPUT);
+  }
 
 void SSwitch::active() {
+  deactivate_all();
+  delay(1);
   digitalWrite(p1, addr & 0b01 ? HIGH : LOW);
-  digitalWrite(p2, addr & 0b10 ? HIGH : LOW);
+}
+
+void SSwitch::deactivate_all() {
+    digitalWrite(P0_06, HIGH);
+    digitalWrite(P0_07, HIGH);
+    digitalWrite(P0_08, HIGH);
+    digitalWrite(P0_09, HIGH);
 }

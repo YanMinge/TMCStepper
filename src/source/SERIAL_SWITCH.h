@@ -5,10 +5,10 @@
 
 class SSwitch {
   public:
-    SSwitch(const uint16_t pin1, const uint16_t pin2, const uint8_t address);
+    SSwitch(const uint16_t pin1, const uint8_t address);
     void active();
+	void deactivate_all();
   private:
     const uint16_t p1;
-    const uint16_t p2;
     const uint8_t addr;
 };

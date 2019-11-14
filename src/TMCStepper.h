@@ -807,7 +807,7 @@ class TMC5161Stepper : public TMC5160Stepper {
 
 class TMC2208Stepper : public TMCStepper {
 	public:
-	    TMC2208Stepper(Stream * SerialPort, float RS, uint8_t addr, uint16_t mul_pin1, uint16_t mul_pin2);
+	    TMC2208Stepper(Stream * SerialPort, float RS, uint8_t addr, uint16_t mul_pin, bool has_rx);
 		TMC2208Stepper(Stream * SerialPort, float RS) :
 			TMC2208Stepper(SerialPort, RS, TMC2208_SLAVE_ADDR)
 			{}
